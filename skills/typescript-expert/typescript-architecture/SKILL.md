@@ -2,7 +2,7 @@
 name: typescript-architecture
 description: Project-level TypeScript architecture — tsconfig strategy, monorepo project references, module boundaries, import direction, public API surface minimalism. Use when setting up or restructuring a project, defining module boundaries, designing exported APIs, or configuring monorepos.
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # TypeScript Architecture Discipline

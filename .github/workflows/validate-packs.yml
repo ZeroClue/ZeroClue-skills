@@ -1,0 +1,17 @@
+name: validate-packs
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate every public pack
+        run: |
+          for pack in skills/*/; do
+            ./scripts/validate-pack.sh "$pack"
+          done

@@ -11,12 +11,10 @@ npx skills@latest add ZeroClue/ZeroClue-skills
 The installer discovers the `typescript-expert` pack under `skills/` and lets you pick skills and target agent — works for Claude Code, Cursor, Codex, opencode, Pi, and others.
 
 **Option B — Manual copy**
-Drop the `skills/typescript-expert` folder into your agent's skills directory:
-- Claude Code: `.claude/skills/`
-- Cursor: `.cursor/skills/` (also reads `.claude/skills/`)
-- Codex: repo root `skills/`
-- opencode: `.opencode/skills/`
-- Pi: project-local skills dir or `~/.pi/agent/skills/`
+The installer handles 80+ agents and their destination paths. If you must
+copy by hand, use the [skills.sh agent table](https://skills.sh/docs/cli)
+as the source of record for per-agent directories, and copy the skill
+folders from `skills/typescript-expert/`.
 
 **Option C — Paste into a session**
 Paste any single `SKILL.md` body directly as instructions; each is self-contained.
