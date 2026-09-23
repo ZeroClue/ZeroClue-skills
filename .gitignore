@@ -6,6 +6,9 @@ docs/
 # Internal/private skills (not for distribution yet)
 .agents/
 
+# Personal session machinery (/handoff, /pickup, opencode bindings)
+.opencode/
+
 # skills CLI install manifest (consuming-project artifact; this is an authoring repo)
 skills-lock.json
 
