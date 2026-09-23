@@ -191,14 +191,19 @@ validate_skill() { # $1: skill dir, $2: expected skill name (directory basename)
     pass "$name: body $chars chars (~$((chars / 4)) tokens)"
   fi
 
-  # cache stability: dates and "latest" are failures; bare semver is a warning
+  # cache stability: dates are failures; prose recency claims and version
+  # pins are checked on the inline-code-stripped body (quoted commands such
+  # as `skills@latest` are not recency claims; same precedent as the
+  # self-containment stripping below)
+  local plain_body
+  plain_body=$(printf '%s' "$body" | sed 's/`[^`]*`//g')
   if printf '%s' "$body" | grep -qE '20[0-9]{2}-[0-9]{2}-[0-9]{2}'; then
     fail "$name: ISO date in SKILL.md body (cache stability)"
   fi
-  if printf '%s' "$body" | grep -qw 'latest'; then
+  if printf '%s' "$plain_body" | grep -qw 'latest'; then
     fail "$name: 'latest' in SKILL.md body (cache stability)"
   fi
-  if printf '%s' "$body" | grep -qE '\b[0-9]+\.[0-9]+\.[0-9]+\b'; then
+  if printf '%s' "$plain_body" | grep -qE '\b[0-9]+\.[0-9]+\.[0-9]+\b'; then
     warn "$name: semver-like string in SKILL.md body (possible version pin)"
   fi
   pass "$name: cache-stability scan done"
@@ -206,8 +211,6 @@ validate_skill() { # $1: skill dir, $2: expected skill name (directory basename)
   # self-containment: no escaping paths, no path-shaped skill references.
   # Inline code spans are stripped first: a red-flag rule may legitimately
   # quote an anti-pattern (e.g. '../..') inside backticks.
-  local plain_body
-  plain_body=$(printf '%s' "$body" | sed 's/`[^`]*`//g')
   if printf '%s' "$plain_body" | grep -q '\.\./'; then
     fail "$name: body contains '../' path (self-containment breach)"
   fi
