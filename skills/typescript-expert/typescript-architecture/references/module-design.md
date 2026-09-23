@@ -2,7 +2,7 @@
 
 ## Base-config pattern
 
-```
+```text
 repo/
 ├── tsconfig.base.json      # strictness, shared flags, rationale comments
 ├── packages/
@@ -43,7 +43,7 @@ Build with `tsc -b`: TS builds the graph in dependency order; a type error in co
 
 ## Layering rules
 
-```
+```text
 entry points (main, routes)   → may import: services, domain
 services                      → may import: domain, primitives
 domain                        → may import: primitives
