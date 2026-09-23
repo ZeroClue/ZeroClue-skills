@@ -5,6 +5,23 @@ All notable changes to the typescript-expert skills pack will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- `evals/`: 13 eval files per the repo eval standard (7 routing evals covering
+  each skill's trigger plus an anti-trigger; 6 rationalization probes, one per
+  skill). Routing evals assert complete firing sets (baseline co-fires).
+- `DECISIONS.md`: public design decision record.
+
+### Removed
+- Pack-local `scripts/validate-pack.sh`: validation moved to the repo-root
+  parameterized validator (`scripts/validate-pack.sh <pack-dir>`). Packs carry
+  no dependency on the validator and stay self-contained for per-skill installs.
+
+### Fixed
+- `typescript-architecture/references/module-design.md`: two bare code fences
+  (file tree, layering rules) tagged `text` per the language-tag standard.
+
 ## [1.0.0] - 2026-09-22
 
 ### Added

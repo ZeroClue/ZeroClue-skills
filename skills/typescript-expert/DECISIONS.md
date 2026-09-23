@@ -92,3 +92,26 @@ documentation is private. Alternatives are recorded where meaningful.
   implementations are all acceptable.
 - Standalone (single-skill) shape: rejected for this domain; the baseline
   plus five trigger domains warranted a pack.
+
+## Evals
+
+Registered in `evals/`, 13 files, versioned with the pack:
+
+- Routing (7): `baseline-trigger`, `boundary-trigger` (multi-fire: core +
+  boundaries + async), `async-trigger`, `type-level-trigger`,
+  `architecture-trigger`, `migration-trigger` (precedence override active),
+  `anti-trigger` (neighboring domain; zero skills fire)
+- Rationalization probes (6, one per skill): `probe-core-as-cast`,
+  `probe-core-nullish`, `probe-type-level-clever`, `probe-async-floating`,
+  `probe-architecture-barrel`, `probe-migration-any`
+
+Running evals is manual (fresh session; with/without-pack diff per the
+repo governance). Structural validity is enforced by the repo validator.
+
+## Authoring artifacts
+
+- `VALIDATION_REPORT.md` (gitignored): local build artifact from the
+  original 1.0.0 build. Not distributed.
+- Pack-local validation script: retired; the repo-root parameterized
+  validator (`scripts/validate-pack.sh <pack-dir>`) is the authoring-time
+  check. The pack carries no validation dependency.

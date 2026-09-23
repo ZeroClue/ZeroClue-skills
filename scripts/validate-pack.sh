@@ -239,6 +239,9 @@ else
   SHAPE="multi"
   for dir in "$PACK_DIR"/*/; do
     [[ -d "$dir" ]] || continue
+    if [[ "$(basename "$dir")" == "evals" ]]; then
+      continue # evals/ is a pack-root artifact, checked in the evals section
+    fi
     if [[ -f "${dir}SKILL.md" ]]; then
       validate_skill "${dir%/}" "$(basename "$dir")"
       found_skill=1
