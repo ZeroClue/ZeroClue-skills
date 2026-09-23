@@ -1,0 +1,21 @@
+# Private working material: design docs, concept docs, refinement log.
+# Full grill content and user conversation stay private; sanitized decision
+# records are committed per pack as DECISIONS.md.
+docs/
+
+# Internal/private skills (not for distribution yet)
+.agents/
+
+# skills CLI install manifest (consuming-project artifact; this is an authoring repo)
+skills-lock.json
+
+# Pack validation reports (local build artifacts)
+skills/*/VALIDATION_REPORT.md
+
+# OS/editor files
+.DS_Store
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
